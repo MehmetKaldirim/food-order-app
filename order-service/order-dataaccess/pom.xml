@@ -12,8 +12,14 @@
     <artifactId>order-dataaccess</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zeroToHero</groupId>
+            <artifactId>order-application-service</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
