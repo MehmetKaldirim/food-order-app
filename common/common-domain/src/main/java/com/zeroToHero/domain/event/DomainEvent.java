@@ -1,4 +1,4 @@
-package com.zeroTohero.domain.event;
+package com.zeroToHero.domain.event;
 
 public interface DomainEvent <T> {
 

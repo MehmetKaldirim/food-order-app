@@ -1,4 +1,4 @@
-package com.zeroTohero.domain.valueObject;
+package com.zeroToHero.domain.valueobject;
 
 import java.util.Objects;
 

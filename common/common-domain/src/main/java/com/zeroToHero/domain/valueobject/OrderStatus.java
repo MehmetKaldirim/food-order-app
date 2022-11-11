@@ -1,4 +1,4 @@
-package com.zeroTohero.domain.valueObject;
+package com.zeroToHero.domain.valueobject;
 
 public enum OrderStatus {
     PENDING, PAID, APPROVED, CANCELLING,  CANCELLED

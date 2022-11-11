@@ -17,7 +17,22 @@
     <dependencies>
         <dependency>
             <groupId>com.zeroToHero</groupId>
+            <artifactId>common-domain</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeroToHero</groupId>
+            <artifactId>common-domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zeroToHero</groupId>
             <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.zeroToHero</groupId>
+            <artifactId>order-domain</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

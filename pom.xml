@@ -8,7 +8,6 @@
         <module>common</module>
 
 
-
     </modules>
 
     <parent>
@@ -59,9 +58,10 @@
             </dependency>
             <dependency>
                 <groupId>com.zeroToHero</groupId>
-                <artifactId>common</artifactId>
+                <artifactId>common-domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
