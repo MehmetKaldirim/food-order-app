@@ -3,6 +3,7 @@ package zeroToHero.order.service.domain.entity;
 
 import com.zeroToHero.domain.entity.AggregateRoot;
 import com.zeroToHero.domain.valueobject.*;
+import zeroToHero.order.service.domain.exception.OrderDomainException;
 import zeroToHero.order.service.domain.valueobject.OrderItemId;
 import zeroToHero.order.service.domain.valueobject.StreetAddress;
 import zeroToHero.order.service.domain.valueobject.TrackingId;
@@ -76,9 +77,17 @@ public class Order extends AggregateRoot<OrderId> {
         }
     }
 
+
     private void validateInitialOrder() {
         if (orderStatus != null || getId() != null) {
             throw new OrderDomainException("Order is not in correct state for initialization!");
+        }
+    }
+
+    private void initializeOrderItems() {
+        long itemId = 1;
+        for (OrderItem orderItem: items) {
+            orderItem.initializeOrderItem(super.getId(), new OrderItemId(itemId++));
         }
     }
 
@@ -107,12 +116,7 @@ public class Order extends AggregateRoot<OrderId> {
         }
     }
 
-    private void initializeOrderItems() {
-        long itemId = 1;
-        for (OrderItem orderItem: items) {
-            orderItem.initializeOrderItem(super.getId(), new OrderItemId(itemId++));
-        }
-    }
+
 
     private Order(Builder builder) {
         super.setId(builder.orderId);
