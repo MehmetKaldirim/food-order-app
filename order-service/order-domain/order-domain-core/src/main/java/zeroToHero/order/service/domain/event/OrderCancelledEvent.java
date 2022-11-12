@@ -5,9 +5,10 @@ import zeroToHero.order.service.domain.entity.Order;
 
 import java.time.ZonedDateTime;
 
-public class OrderCreatedEvent extends OrderEvent {
+public class OrderCancelledEvent extends OrderEvent{
 
-    public OrderCreatedEvent(Order order, ZonedDateTime createdAt) {
+
+    public OrderCancelledEvent(Order order, ZonedDateTime createdAt) {
         super(order, createdAt);
     }
 }
