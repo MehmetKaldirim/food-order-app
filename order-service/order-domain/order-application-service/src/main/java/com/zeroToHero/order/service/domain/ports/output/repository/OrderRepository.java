@@ -2,8 +2,11 @@ package com.zeroToHero.order.service.domain.ports.output.repository;
 
 import com.zeroToHero.order.service.domain.entity.Order;
 import com.zeroToHero.order.service.domain.valueobject.TrackingId;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+
 
 public interface OrderRepository {
 
