@@ -1,4 +1,4 @@
-package zeroToHero.order.service.domain.valueobject;
+package com.zeroToHero.order.service.domain.valueobject;
 
 import java.util.Objects;
 import java.util.UUID;

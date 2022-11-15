@@ -1,10 +1,10 @@
-package zeroToHero.order.service.domain;
+package com.zeroToHero.order.service.domain;
 
-import zeroToHero.order.service.domain.entity.Order;
-import zeroToHero.order.service.domain.entity.Restaurant;
-import zeroToHero.order.service.domain.event.OrderCancelledEvent;
-import zeroToHero.order.service.domain.event.OrderCreatedEvent;
-import zeroToHero.order.service.domain.event.OrderPaidEvent;
+import com.zeroToHero.order.service.domain.entity.Order;
+import com.zeroToHero.order.service.domain.entity.Restaurant;
+import com.zeroToHero.order.service.domain.event.OrderCancelledEvent;
+import com.zeroToHero.order.service.domain.event.OrderCreatedEvent;
+import com.zeroToHero.order.service.domain.event.OrderPaidEvent;
 
 import java.util.List;
 

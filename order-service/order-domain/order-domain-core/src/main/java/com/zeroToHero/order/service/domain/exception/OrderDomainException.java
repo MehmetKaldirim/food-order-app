@@ -1,4 +1,4 @@
-package zeroToHero.order.service.domain.exception;
+package com.zeroToHero.order.service.domain.exception;
 
 import com.zeroToHero.domain.exception.DomainException;
 

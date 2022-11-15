@@ -9,11 +9,11 @@ import com.zeroToHero.order.service.domain.dto.create.CreateOrderResponse;
 import com.zeroToHero.order.service.domain.dto.create.OrderAddress;
 import com.zeroToHero.order.service.domain.dto.track.TrackOrderResponse;
 import org.springframework.stereotype.Component;
-import zeroToHero.order.service.domain.entity.Order;
-import zeroToHero.order.service.domain.entity.OrderItem;
-import zeroToHero.order.service.domain.entity.Product;
-import zeroToHero.order.service.domain.entity.Restaurant;
-import zeroToHero.order.service.domain.valueobject.StreetAddress;
+import com.zeroToHero.order.service.domain.entity.Order;
+import com.zeroToHero.order.service.domain.entity.OrderItem;
+import com.zeroToHero.order.service.domain.entity.Product;
+import com.zeroToHero.order.service.domain.entity.Restaurant;
+import com.zeroToHero.order.service.domain.valueobject.StreetAddress;
 
 import java.util.List;
 import java.util.UUID;
@@ -40,11 +40,11 @@ public class OrderDataMapper {
                 .build();
     }
 
-    public CreateOrderResponse orderToCreateOrderResponse(Order order) {
+    public CreateOrderResponse orderToCreateOrderResponse(Order order, String message) {
         return CreateOrderResponse.builder()
                 .orderTrackingId(order.getTrackingId().getValue())
                 .orderStatus(order.getOrderStatus())
-         //       .message(message)
+                .message(message)
                 .build();
     }
 

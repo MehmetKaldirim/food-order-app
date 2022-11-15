@@ -1,6 +1,6 @@
 package com.zeroToHero.order.service.domain.ports.output.repository;
 
-import zeroToHero.order.service.domain.entity.Restaurant;
+import com.zeroToHero.order.service.domain.entity.Restaurant;
 
 import java.util.Optional;
 

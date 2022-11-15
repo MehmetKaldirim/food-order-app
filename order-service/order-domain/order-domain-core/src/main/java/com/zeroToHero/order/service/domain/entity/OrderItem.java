@@ -1,10 +1,10 @@
-package zeroToHero.order.service.domain.entity;
+package com.zeroToHero.order.service.domain.entity;
 
 
 import com.zeroToHero.domain.entity.BaseEntity;
 import com.zeroToHero.domain.valueobject.Money;
 import com.zeroToHero.domain.valueobject.OrderId;
-import zeroToHero.order.service.domain.valueobject.OrderItemId;
+import com.zeroToHero.order.service.domain.valueobject.OrderItemId;
 
 
 public class OrderItem extends BaseEntity<OrderItemId> {

@@ -1,4 +1,4 @@
-package zeroToHero.order.service.domain.valueobject;
+package com.zeroToHero.order.service.domain.valueobject;
 
 import com.zeroToHero.domain.valueobject.BaseId;
 

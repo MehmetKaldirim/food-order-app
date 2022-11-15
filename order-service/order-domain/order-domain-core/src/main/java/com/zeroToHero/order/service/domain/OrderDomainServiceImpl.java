@@ -1,13 +1,13 @@
-package zeroToHero.order.service.domain;
+package com.zeroToHero.order.service.domain;
 
 import lombok.extern.slf4j.Slf4j;
-import zeroToHero.order.service.domain.entity.Order;
-import zeroToHero.order.service.domain.entity.Product;
-import zeroToHero.order.service.domain.entity.Restaurant;
-import zeroToHero.order.service.domain.event.OrderCancelledEvent;
-import zeroToHero.order.service.domain.event.OrderCreatedEvent;
-import zeroToHero.order.service.domain.event.OrderPaidEvent;
-import zeroToHero.order.service.domain.exception.OrderDomainException;
+import com.zeroToHero.order.service.domain.entity.Order;
+import com.zeroToHero.order.service.domain.entity.Product;
+import com.zeroToHero.order.service.domain.entity.Restaurant;
+import com.zeroToHero.order.service.domain.event.OrderCancelledEvent;
+import com.zeroToHero.order.service.domain.event.OrderCreatedEvent;
+import com.zeroToHero.order.service.domain.event.OrderPaidEvent;
+import com.zeroToHero.order.service.domain.exception.OrderDomainException;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;

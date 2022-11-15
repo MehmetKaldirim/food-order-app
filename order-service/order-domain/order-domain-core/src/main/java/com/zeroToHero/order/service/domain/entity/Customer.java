@@ -1,4 +1,4 @@
-package zeroToHero.order.service.domain.entity;
+package com.zeroToHero.order.service.domain.entity;
 
 import com.zeroToHero.domain.entity.AggregateRoot;
 import com.zeroToHero.domain.valueobject.CustomerId;

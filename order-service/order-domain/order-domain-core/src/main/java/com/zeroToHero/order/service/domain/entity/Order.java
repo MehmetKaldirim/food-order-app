@@ -1,12 +1,12 @@
-package zeroToHero.order.service.domain.entity;
+package com.zeroToHero.order.service.domain.entity;
 
 
 import com.zeroToHero.domain.entity.AggregateRoot;
 import com.zeroToHero.domain.valueobject.*;
-import zeroToHero.order.service.domain.exception.OrderDomainException;
-import zeroToHero.order.service.domain.valueobject.OrderItemId;
-import zeroToHero.order.service.domain.valueobject.StreetAddress;
-import zeroToHero.order.service.domain.valueobject.TrackingId;
+import com.zeroToHero.order.service.domain.exception.OrderDomainException;
+import com.zeroToHero.order.service.domain.valueobject.OrderItemId;
+import com.zeroToHero.order.service.domain.valueobject.TrackingId;
+import com.zeroToHero.order.service.domain.valueobject.StreetAddress;
 
 import java.util.List;
 import java.util.UUID;
