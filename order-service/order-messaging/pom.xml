@@ -32,7 +32,6 @@
             <groupId>com.zeroToHero</groupId>
             <artifactId>kafka-model</artifactId>
         </dependency>
-
     </dependencies>
 
 </project>
