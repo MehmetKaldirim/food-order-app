@@ -17,11 +17,10 @@ public class PaymentCompletedEvent extends PaymentEvent {
         this.paymentCompletedEventDomainEventPublisher = paymentCompletedEventDomainEventPublisher;
     }
 
-   /* @Override
+    @Override
     public void fire() {
         paymentCompletedEventDomainEventPublisher.publish(this);
     }
+    //here actually referce to the payment completed refer Object
 
-
-    */
 }

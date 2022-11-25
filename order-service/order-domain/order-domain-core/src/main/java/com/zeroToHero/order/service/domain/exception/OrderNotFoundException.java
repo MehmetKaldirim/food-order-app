@@ -1,7 +1,5 @@
 package com.zeroToHero.order.service.domain.exception;
 
-import com.zeroToHero.domain.exception.DomainException;
-
 public class OrderNotFoundException extends DomainException {
     public OrderNotFoundException(String message) {
         super(message);
