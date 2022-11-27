@@ -1,7 +1,7 @@
 package com.zeroToHero.order.service.dataaccess.restaurant.mapper;
 
-import com.zeroToHero.order.service.dataaccess.restaurant.RestaurantDataAccessException;
-import com.zeroToHero.order.service.dataaccess.restaurant.entity.RestaurantEntity;
+import com.zeroToHero.dataaccess.restaurant.entity.RestaurantEntity;
+import com.zeroToHero.dataaccess.restaurant.exception.RestaurantDataAccessException;
 import com.zeroToHero.domain.valueobject.Money;
 import com.zeroToHero.domain.valueobject.ProductId;
 import com.zeroToHero.domain.valueobject.RestaurantId;

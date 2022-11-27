@@ -1,11 +1,10 @@
-package com.zeroToHero.order.service.dataaccess.restaurant.adapter;
-
+package com.zeroToHero.restaurant.service.dataaccess.restaurant.adapter;
 
 import com.zeroToHero.dataaccess.restaurant.entity.RestaurantEntity;
 import com.zeroToHero.dataaccess.restaurant.repository.RestaurantJpaRepository;
-import com.zeroToHero.order.service.dataaccess.restaurant.mapper.RestaurantDataAccessMapper;
-import com.zeroToHero.order.service.domain.entity.Restaurant;
-import com.zeroToHero.order.service.domain.ports.output.repository.RestaurantRepository;
+import com.zeroToHero.restaurant.service.dataaccess.restaurant.mapper.RestaurantDataAccessMapper;
+import com.zeroToHero.restaurant.service.domain.entity.Restaurant;
+import com.zeroToHero.restaurant.service.domain.ports.output.repository.RestaurantRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -18,20 +17,19 @@ public class RestaurantRepositoryImpl implements RestaurantRepository {
     private final RestaurantJpaRepository restaurantJpaRepository;
     private final RestaurantDataAccessMapper restaurantDataAccessMapper;
 
-    public RestaurantRepositoryImpl(RestaurantJpaRepository restaurantJpaRepository, RestaurantDataAccessMapper restaurantDataAccessMapper) {
+    public RestaurantRepositoryImpl(RestaurantJpaRepository restaurantJpaRepository,
+                                    RestaurantDataAccessMapper restaurantDataAccessMapper) {
         this.restaurantJpaRepository = restaurantJpaRepository;
         this.restaurantDataAccessMapper = restaurantDataAccessMapper;
     }
 
     @Override
     public Optional<Restaurant> findRestaurantInformation(Restaurant restaurant) {
-
-        List<UUID> restaurantProducts = restaurantDataAccessMapper
-                .restaurantToRestaurantProducts(restaurant);
-
+        List<UUID> restaurantProducts =
+                restaurantDataAccessMapper.restaurantToRestaurantProducts(restaurant);
         Optional<List<RestaurantEntity>> restaurantEntities = restaurantJpaRepository
-                .findByRestaurantIdAndProductIdIn(restaurant.getId().getValue(),restaurantProducts);
+                .findByRestaurantIdAndProductIdIn(restaurant.getId().getValue(),
+                        restaurantProducts);
         return restaurantEntities.map(restaurantDataAccessMapper::restaurantEntityToRestaurant);
     }
-
 }

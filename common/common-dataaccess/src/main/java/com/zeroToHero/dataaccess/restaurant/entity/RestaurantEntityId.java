@@ -1,12 +1,8 @@
-package com.zeroToHero.order.service.dataaccess.restaurant.entity;
-
+package com.zeroToHero.dataaccess.restaurant.entity;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.math.BigDecimal;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -15,24 +11,16 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "order_restaurant_m_view", schema = "restaurant")
-@Entity
-public class RestaurantEntity {
+public class RestaurantEntityId implements Serializable {
 
-    @Id
     private UUID restaurantId;
-    @Id
     private UUID productId;
-    private String restaurantName;
-    private Boolean restaurantActive;
-    private String productName;
-    private BigDecimal productPrice;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RestaurantEntity that = (RestaurantEntity) o;
+        RestaurantEntityId that = (RestaurantEntityId) o;
         return restaurantId.equals(that.restaurantId) && productId.equals(that.productId);
     }
 

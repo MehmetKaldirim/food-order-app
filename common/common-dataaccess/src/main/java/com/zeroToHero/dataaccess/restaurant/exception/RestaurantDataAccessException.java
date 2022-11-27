@@ -1,6 +1,7 @@
-package com.zeroToHero.order.service.dataaccess.restaurant;
+package com.zeroToHero.dataaccess.restaurant.exception;
 
 public class RestaurantDataAccessException extends RuntimeException{
+
     public RestaurantDataAccessException(String message) {
         super(message);
     }

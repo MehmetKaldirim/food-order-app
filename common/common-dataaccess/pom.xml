@@ -3,27 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>order-service</artifactId>
+        <artifactId>common</artifactId>
         <groupId>com.zeroToHero</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>order-dataaccess</artifactId>
+    <artifactId>common-dataaccess</artifactId>
 
-    <properties>
-
-    </properties>
 <dependencies>
-    <dependency>
-        <groupId>com.zeroToHero</groupId>
-        <artifactId>order-application-service</artifactId>
-    </dependency>
-    <dependency>
-        <groupId>com.zeroToHero</groupId>
-        <artifactId>common-dataaccess</artifactId>
-    </dependency>
-
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -34,4 +22,4 @@
     </dependency>
 </dependencies>
 
-        </project>
+</project>

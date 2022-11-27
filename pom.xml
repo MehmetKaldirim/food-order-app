@@ -47,6 +47,16 @@
             </dependency>
             <dependency>
                 <groupId>com.zeroToHero</groupId>
+                <artifactId>common-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeroToHero</groupId>
+                <artifactId>common-dataaccess</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeroToHero</groupId>
                 <artifactId>order-domain-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -76,11 +86,7 @@
                 <version>${project.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.zeroToHero</groupId>
-                <artifactId>common-application</artifactId>
-                <version>${project.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.zeroToHero</groupId>
                 <artifactId>payment-application-service</artifactId>
