@@ -11,14 +11,24 @@
 
     <artifactId>order-messaging</artifactId>
 
-    <properties>
 
-    </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.zeroToHero</groupId>
             <artifactId>order-application-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeroToHero</groupId>
+            <artifactId>kafka-producer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeroToHero</groupId>
+            <artifactId>kafka-consumer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeroToHero</groupId>
+            <artifactId>kafka-model</artifactId>
         </dependency>
     </dependencies>
 
