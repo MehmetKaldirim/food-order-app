@@ -11,9 +11,7 @@
 
     <artifactId>order-messaging</artifactId>
 
-    <properties>
 
-    </properties>
 
     <dependencies>
         <dependency>
