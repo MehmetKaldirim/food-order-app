@@ -1,6 +1,6 @@
-package com.heroToZero.publisher.kafka;
+package com.zeroToHero.order.service.messaging.publisher.kafka;
 
-import com.heroToZero.mapper.OrderMessagingDataMapper;
+import com.zeroToHero.order.service.messaging.mapper.OrderMessagingDataMapper;
 import com.zeroToHero.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
 import com.zeroToHero.kafka.producer.KafkaMessageHelper;
 import com.zeroToHero.kafka.producer.service.KafkaProducer;

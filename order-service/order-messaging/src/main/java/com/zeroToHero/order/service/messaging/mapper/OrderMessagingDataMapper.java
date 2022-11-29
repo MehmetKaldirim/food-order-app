@@ -1,4 +1,4 @@
-package com.heroToZero.mapper;
+package com.zeroToHero.order.service.messaging.mapper;
 
 import com.zeroToHero.kafka.order.avro.model.*;
 import com.zeroToHero.order.service.domain.dto.message.PaymentResponse;

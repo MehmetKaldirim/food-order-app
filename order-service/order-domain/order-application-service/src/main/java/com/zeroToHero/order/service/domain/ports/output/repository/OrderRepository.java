@@ -1,5 +1,6 @@
 package com.zeroToHero.order.service.domain.ports.output.repository;
 
+import com.zeroToHero.domain.valueobject.OrderId;
 import com.zeroToHero.order.service.domain.entity.Order;
 import com.zeroToHero.order.service.domain.valueobject.TrackingId;
 import org.springframework.stereotype.Component;
@@ -13,4 +14,8 @@ public interface OrderRepository {
     Order save(Order order);
 
     Optional<Order> findByTrackingId(TrackingId trackingId);
+
+    Optional<Order> findById(OrderId orderId);
+
+
 }
