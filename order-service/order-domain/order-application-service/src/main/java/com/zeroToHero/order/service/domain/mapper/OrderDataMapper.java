@@ -1,18 +1,18 @@
 package com.zeroToHero.order.service.domain.mapper;
 
-import com.zeroToHero.domain.valueobject.CustomerId;
-import com.zeroToHero.domain.valueobject.Money;
-import com.zeroToHero.domain.valueobject.ProductId;
-import com.zeroToHero.domain.valueobject.RestaurantId;
+import com.zeroToHero.domain.valueobject.*;
 import com.zeroToHero.order.service.domain.dto.create.CreateOrderCommand;
 import com.zeroToHero.order.service.domain.dto.create.CreateOrderResponse;
 import com.zeroToHero.order.service.domain.dto.create.OrderAddress;
 import com.zeroToHero.order.service.domain.dto.track.TrackOrderResponse;
+import com.zeroToHero.order.service.domain.entity.*;
+import com.zeroToHero.order.service.domain.event.OrderCancelledEvent;
+import com.zeroToHero.order.service.domain.event.OrderCreatedEvent;
+import com.zeroToHero.order.service.domain.event.OrderPaidEvent;
+import com.zeroToHero.order.service.domain.outbox.model.approval.OrderApprovalEventPayload;
+import com.zeroToHero.order.service.domain.outbox.model.approval.OrderApprovalEventProduct;
+import com.zeroToHero.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
 import org.springframework.stereotype.Component;
-import com.zeroToHero.order.service.domain.entity.Order;
-import com.zeroToHero.order.service.domain.entity.OrderItem;
-import com.zeroToHero.order.service.domain.entity.Product;
-import com.zeroToHero.order.service.domain.entity.Restaurant;
 import com.zeroToHero.order.service.domain.valueobject.StreetAddress;
 
 import java.util.List;
@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class OrderDataMapper {
+
     public Restaurant createOrderCommandToRestaurant(CreateOrderCommand createOrderCommand) {
         return Restaurant.builder()
                 .restaurantId(new RestaurantId(createOrderCommand.getRestaurantId()))
@@ -56,6 +57,51 @@ public class OrderDataMapper {
                 .build();
     }
 
+    public OrderPaymentEventPayload orderCreatedEventToOrderPaymentEventPayload(OrderCreatedEvent orderCreatedEvent) {
+        return OrderPaymentEventPayload.builder()
+                .customerId(orderCreatedEvent.getOrder().getCustomerId().getValue().toString())
+                .orderId(orderCreatedEvent.getOrder().getId().getValue().toString())
+                .price(orderCreatedEvent.getOrder().getPrice().getAmount())
+                .createdAt(orderCreatedEvent.getCreatedAt())
+                .paymentOrderStatus(PaymentOrderStatus.PENDING.name())
+                .build();
+    }
+
+    public OrderPaymentEventPayload orderCancelledEventToOrderPaymentEventPayload(OrderCancelledEvent
+                                                                                          orderCancelledEvent) {
+        return OrderPaymentEventPayload.builder()
+                .customerId(orderCancelledEvent.getOrder().getCustomerId().getValue().toString())
+                .orderId(orderCancelledEvent.getOrder().getId().getValue().toString())
+                .price(orderCancelledEvent.getOrder().getPrice().getAmount())
+                .createdAt(orderCancelledEvent.getCreatedAt())
+                .paymentOrderStatus(PaymentOrderStatus.CANCELLED.name())
+                .build();
+    }
+
+    public OrderApprovalEventPayload orderPaidEventToOrderApprovalEventPayload(OrderPaidEvent orderPaidEvent) {
+        return OrderApprovalEventPayload.builder()
+                .orderId(orderPaidEvent.getOrder().getId().getValue().toString())
+                .restaurantId(orderPaidEvent.getOrder().getRestaurantId().getValue().toString())
+                .restaurantOrderStatus(RestaurantOrderStatus.PAID.name())
+                .products(orderPaidEvent.getOrder().getItems().stream().map(orderItem ->
+                        OrderApprovalEventProduct.builder()
+                                .id(orderItem.getProduct().getId().getValue().toString())
+                                .quantity(orderItem.getQuantity())
+                                .build()).collect(Collectors.toList()))
+                .price(orderPaidEvent.getOrder().getPrice().getAmount())
+                .createdAt(orderPaidEvent.getCreatedAt())
+                .build();
+    }
+
+  /*  public Customer customerModelToCustomer(CustomerModel customerModel) {
+        return new Customer(new CustomerId(UUID.fromString(customerModel.getId())),
+                customerModel.getUsername(),
+                customerModel.getFirstName(),
+                customerModel.getLastName());
+    }
+    */
+
+
     private List<OrderItem> orderItemsToOrderItemEntities(
             List<com.zeroToHero.order.service.domain.dto.create.OrderItem> orderItems) {
         return orderItems.stream()
@@ -68,7 +114,7 @@ public class OrderDataMapper {
                                 .build()).collect(Collectors.toList());
     }
 
-   private StreetAddress orderAddressToStreetAddress(OrderAddress orderAddress) {
+    private StreetAddress orderAddressToStreetAddress(OrderAddress orderAddress) {
         return new StreetAddress(
                 UUID.randomUUID(),
                 orderAddress.getStreet(),

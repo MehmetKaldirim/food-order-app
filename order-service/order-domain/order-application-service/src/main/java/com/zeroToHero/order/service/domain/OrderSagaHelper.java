@@ -1,9 +1,11 @@
 package com.zeroToHero.order.service.domain;
 
 import com.zeroToHero.domain.valueobject.OrderId;
+import com.zeroToHero.domain.valueobject.OrderStatus;
 import com.zeroToHero.order.service.domain.entity.Order;
 import com.zeroToHero.order.service.domain.exception.OrderNotFoundException;
 import com.zeroToHero.order.service.domain.ports.output.repository.OrderRepository;
+import com.zeroToHero.saga.SagaStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -30,5 +32,20 @@ public class OrderSagaHelper {
 
     void saveOrder(Order order) {
         orderRepository.save(order);
+    }
+
+    SagaStatus orderStatusToSagaStatus(OrderStatus orderStatus){
+        switch( orderStatus){
+            case PAID :
+                return SagaStatus.PROCESSING;
+            case APPROVED:
+                return SagaStatus.SUCCEEDED;
+            case CANCELLING:
+                return SagaStatus.COMPENSATING;
+            case CANCELLED:
+                return SagaStatus.COMPENSATED;
+            default:
+                return SagaStatus.STARTED;
+        }
     }
 }

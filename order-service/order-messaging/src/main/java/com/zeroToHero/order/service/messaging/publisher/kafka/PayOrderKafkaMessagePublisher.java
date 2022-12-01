@@ -1,18 +1,18 @@
 package com.zeroToHero.order.service.messaging.publisher.kafka;
 
+import com.zeroToHero.domain.event.publisher.DomainEventPublisher;
 import com.zeroToHero.order.service.messaging.mapper.OrderMessagingDataMapper;
 import com.zeroToHero.kafka.order.avro.model.RestaurantApprovalRequestAvroModel;
 import com.zeroToHero.kafka.producer.KafkaMessageHelper;
 import com.zeroToHero.kafka.producer.service.KafkaProducer;
 import com.zeroToHero.order.service.domain.config.OrderServiceConfigData;
 import com.zeroToHero.order.service.domain.event.OrderPaidEvent;
-import com.zeroToHero.order.service.domain.ports.output.message.publisher.restaurantapproval.OrderPaidRestaurantRequestMessagePublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class PayOrderKafkaMessagePublisher implements OrderPaidRestaurantRequestMessagePublisher {
+public class PayOrderKafkaMessagePublisher implements DomainEventPublisher<OrderPaidEvent> {
 
     private final OrderMessagingDataMapper orderMessagingDataMapper;
     private final OrderServiceConfigData orderServiceConfigData;
