@@ -17,9 +17,9 @@ import org.springframework.stereotype.Service;
 
 import static com.zeroToHero.domain.DomainConstants.UTC;
 
+
 @Slf4j
-@Service
-public class OrderDomainServiceImpl implements  OrderDomainService{
+public class OrderDomainServiceImpl implements OrderDomainService {
 
     @Override
     public OrderCreatedEvent validateAndInitiateOrder(Order order, Restaurant restaurant) {
@@ -29,10 +29,7 @@ public class OrderDomainServiceImpl implements  OrderDomainService{
         order.initializeOrder();
         log.info("Order with id: {} is initiated", order.getId().getValue());
         return new OrderCreatedEvent(order, ZonedDateTime.now(ZoneId.of(UTC)));
-        //Universal Time Coordinated  we are using here
     }
-
-
 
     @Override
     public OrderPaidEvent payOrder(Order order) {
@@ -48,7 +45,7 @@ public class OrderDomainServiceImpl implements  OrderDomainService{
     }
 
     @Override
-    public OrderCancelledEvent cancelOrderPayment(Order order, List<String> failureMessages, ) {
+    public OrderCancelledEvent cancelOrderPayment(Order order, List<String> failureMessages) {
         order.initCancel(failureMessages);
         log.info("Order payment is cancelling for order id: {}", order.getId().getValue());
         return new OrderCancelledEvent(order, ZonedDateTime.now(ZoneId.of(UTC)));
@@ -58,21 +55,21 @@ public class OrderDomainServiceImpl implements  OrderDomainService{
     public void cancelOrder(Order order, List<String> failureMessages) {
         order.cancel(failureMessages);
         log.info("Order with id: {} is cancelled", order.getId().getValue());
-
     }
 
-    public void validateRestaurant (Restaurant restaurant){
-        if(!restaurant.isActive()){
-            throw new OrderDomainException("Restaurant with id " + restaurant.getId().getValue()
-                    + " is currently not active!");
+    private void validateRestaurant(Restaurant restaurant) {
+        if (!restaurant.isActive()) {
+            throw new OrderDomainException("Restaurant with id " + restaurant.getId().getValue() +
+                    " is currently not active!");
         }
     }
 
     private void setOrderProductInformation(Order order, Restaurant restaurant) {
-        order.getItems().forEach(orderItem->restaurant.getProducts().forEach(restaurantProduct->{
+        order.getItems().forEach(orderItem -> restaurant.getProducts().forEach(restaurantProduct -> {
             Product currentProduct = orderItem.getProduct();
-            if (currentProduct.equals(restaurantProduct)){
-                currentProduct.updateWithConfirmedNameAndPrice(restaurantProduct.getName(),restaurantProduct.getPrice());
+            if (currentProduct.equals(restaurantProduct)) {
+                currentProduct.updateWithConfirmedNameAndPrice(restaurantProduct.getName(),
+                        restaurantProduct.getPrice());
             }
         }));
     }
