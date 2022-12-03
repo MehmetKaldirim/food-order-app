@@ -13,6 +13,7 @@ import static com.zeroToHero.order.service.domain.entity.Order.FAILURE_MESSAGE_D
 @Validated
 @Service
 public class RestaurantApprovalResponseMessageListenerImpl implements RestaurantApprovalResponseMessageListener {
+
     private final OrderApprovalSaga orderApprovalSaga;
 
     public RestaurantApprovalResponseMessageListenerImpl(OrderApprovalSaga orderApprovalSaga) {
@@ -27,10 +28,9 @@ public class RestaurantApprovalResponseMessageListenerImpl implements Restaurant
 
     @Override
     public void orderRejected(RestaurantApprovalResponse restaurantApprovalResponse) {
-        OrderCancelledEvent domainEvent = orderApprovalSaga.rollback(restaurantApprovalResponse);
-        log.info("Order Approval Saga rollback is completed for id : {} with failure messages: {}",
+        orderApprovalSaga.rollback(restaurantApprovalResponse);
+        log.info("Order Approval Saga rollback operation is completed for order id: {} with failure messages: {}",
                 restaurantApprovalResponse.getOrderId(),
-                String.join(FAILURE_MESSAGE_DELIMITER,restaurantApprovalResponse.getFailureMessages()));
-
+                String.join(FAILURE_MESSAGE_DELIMITER, restaurantApprovalResponse.getFailureMessages()));
     }
 }

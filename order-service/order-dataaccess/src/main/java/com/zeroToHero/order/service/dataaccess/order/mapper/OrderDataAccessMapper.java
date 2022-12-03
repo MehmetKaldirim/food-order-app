@@ -41,16 +41,6 @@ public class OrderDataAccessMapper {
         return orderEntity;
     }
 
-    private OrderAddressEntity deliveryAddressToAddressEntity(StreetAddress deliveryAddress) {
-
-        return OrderAddressEntity.builder()
-                .id(deliveryAddress.getId())
-                .street(deliveryAddress.getStreet())
-                .postalCode(deliveryAddress.getPostalCode())
-                .city(deliveryAddress.getCity())
-                .build();
-    }
-
     public Order orderEntityToOrder(OrderEntity orderEntity) {
         return Order.builder()
                 .orderId(new OrderId(orderEntity.getId()))
@@ -98,4 +88,12 @@ public class OrderDataAccessMapper {
                 .collect(Collectors.toList());
     }
 
+    private OrderAddressEntity deliveryAddressToAddressEntity(StreetAddress deliveryAddress) {
+        return OrderAddressEntity.builder()
+                .id(deliveryAddress.getId())
+                .street(deliveryAddress.getStreet())
+                .postalCode(deliveryAddress.getPostalCode())
+                .city(deliveryAddress.getCity())
+                .build();
+    }
 }

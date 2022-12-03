@@ -9,7 +9,6 @@ import javax.validation.Valid;
 
 public interface OrderApplicationService {
 
-    //we have validation inside so use valid annotation here
     CreateOrderResponse createOrder(@Valid CreateOrderCommand createOrderCommand);
 
     TrackOrderResponse trackOrder(@Valid TrackOrderQuery trackOrderQuery);

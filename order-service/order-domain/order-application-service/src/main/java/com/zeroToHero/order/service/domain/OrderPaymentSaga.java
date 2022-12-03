@@ -61,7 +61,7 @@ public class OrderPaymentSaga implements SagaStep<PaymentResponse> {
                 paymentOutboxHelper.getPaymentOutboxMessageBySagaIdAndSagaStatus(
                         UUID.fromString(paymentResponse.getSagaId()),
                         SagaStatus.STARTED);
-        //here is edge case we should cover
+
         if (orderPaymentOutboxMessageResponse.isEmpty()) {
             log.info("An outbox message with saga id: {} is already processed!", paymentResponse.getSagaId());
             return;

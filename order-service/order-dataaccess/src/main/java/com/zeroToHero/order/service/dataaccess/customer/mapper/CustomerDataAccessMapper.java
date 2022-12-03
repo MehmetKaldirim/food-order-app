@@ -11,4 +11,6 @@ public class CustomerDataAccessMapper {
     public Customer customerEntityToCustomer(CustomerEntity customerEntity) {
         return new Customer(new CustomerId(customerEntity.getId()));
     }
+
+
 }

@@ -13,12 +13,15 @@ import com.zeroToHero.order.service.domain.exception.OrderDomainException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
+
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import static com.zeroToHero.domain.DomainConstants.UTC;
 
 
 @Slf4j
+@Component
 public class OrderDomainServiceImpl implements OrderDomainService {
 
     @Override

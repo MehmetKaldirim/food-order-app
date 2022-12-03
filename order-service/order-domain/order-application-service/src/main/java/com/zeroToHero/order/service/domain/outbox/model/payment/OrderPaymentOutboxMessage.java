@@ -18,12 +18,12 @@ public class OrderPaymentOutboxMessage {
     private UUID sagaId;
     private ZonedDateTime createdAt;
     private ZonedDateTime processedAt;
-    private String type; //type will be constant name of saga
-    private String payload; //json representation of domain event
+    private String type;
+    private String payload;
     private SagaStatus sagaStatus;
     private OrderStatus orderStatus;
     private OutboxStatus outboxStatus;
-    private int version; //we will use this field version data rows to use in optimistic locking
+    private int version;
 
     public void setProcessedAt(ZonedDateTime processedAt) {
         this.processedAt = processedAt;

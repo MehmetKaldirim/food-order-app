@@ -23,7 +23,6 @@ public class PaymentOutboxCleanerScheduler implements OutboxScheduler {
     }
 
     @Override
-    //it means bush your teeth before sleeping...
     @Scheduled(cron = "@midnight")
     public void processOutboxMessage() {
         Optional<List<OrderPaymentOutboxMessage>> outboxMessagesResponse =

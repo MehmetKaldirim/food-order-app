@@ -18,7 +18,6 @@ public class Order extends AggregateRoot<OrderId> {
     private final Money price;
     private final List<OrderItem> items;
 
-    //these three field are not final because i will set them during business logic after creating the order entity
     private TrackingId trackingId;
     private OrderStatus orderStatus;
     private List<String> failureMessages;
@@ -77,17 +76,9 @@ public class Order extends AggregateRoot<OrderId> {
         }
     }
 
-
     private void validateInitialOrder() {
         if (orderStatus != null || getId() != null) {
             throw new OrderDomainException("Order is not in correct state for initialization!");
-        }
-    }
-
-    private void initializeOrderItems() {
-        long itemId = 1;
-        for (OrderItem orderItem: items) {
-            orderItem.initializeOrderItem(super.getId(), new OrderItemId(itemId++));
         }
     }
 
@@ -105,7 +96,7 @@ public class Order extends AggregateRoot<OrderId> {
 
         if (!price.equals(orderItemsTotal)) {
             throw new OrderDomainException("Total price: " + price.getAmount()
-                + " is not equal to Order items total: " + orderItemsTotal.getAmount() + "!");
+                    + " is not equal to Order items total: " + orderItemsTotal.getAmount() + "!");
         }
     }
 
@@ -116,7 +107,12 @@ public class Order extends AggregateRoot<OrderId> {
         }
     }
 
-
+    private void initializeOrderItems() {
+        long itemId = 1;
+        for (OrderItem orderItem: items) {
+            orderItem.initializeOrderItem(super.getId(), new OrderItemId(itemId++));
+        }
+    }
 
     private Order(Builder builder) {
         super.setId(builder.orderId);
