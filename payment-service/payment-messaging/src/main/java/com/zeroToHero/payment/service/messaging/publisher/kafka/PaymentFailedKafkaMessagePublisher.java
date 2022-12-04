@@ -1,18 +1,18 @@
 package com.zeroToHero.payment.service.messaging.publisher.kafka;
 
+import com.zeroToHero.domain.event.publisher.DomainEventPublisher;
 import com.zeroToHero.kafka.order.avro.model.PaymentResponseAvroModel;
 import com.zeroToHero.kafka.producer.KafkaMessageHelper;
 import com.zeroToHero.kafka.producer.service.KafkaProducer;
 import com.zeroToHero.payment.service.domain.config.PaymentServiceConfigData;
 import com.zeroToHero.payment.service.domain.event.PaymentFailedEvent;
-import com.zeroToHero.payment.service.domain.ports.output.message.publisher.PaymentFailedMessagePublisher;
 import com.zeroToHero.payment.service.messaging.mapper.PaymentMessagingDataMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class PaymentFailedKafkaMessagePublisher implements PaymentFailedMessagePublisher {
+public class PaymentFailedKafkaMessagePublisher implements DomainEventPublisher<PaymentFailedEvent> {
 
     private final PaymentMessagingDataMapper paymentMessagingDataMapper;
     private final KafkaProducer<String, PaymentResponseAvroModel> kafkaProducer;
