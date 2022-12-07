@@ -9,7 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>payment-application-service</artifactId>
-
     <dependencies>
         <dependency>
             <groupId>com.zeroToHero</groupId>
@@ -22,10 +21,6 @@
         <dependency>
             <groupId>com.zeroToHero</groupId>
             <artifactId>payment-domain-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.zeroToHero</groupId>
-            <artifactId>payment-dataaccess</artifactId>
         </dependency>
         <dependency>
             <groupId>com.zeroToHero</groupId>
