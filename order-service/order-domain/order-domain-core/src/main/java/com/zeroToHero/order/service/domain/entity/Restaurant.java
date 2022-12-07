@@ -6,8 +6,7 @@ import com.zeroToHero.domain.valueobject.RestaurantId;
 import java.util.List;
 
 public class Restaurant extends AggregateRoot<RestaurantId> {
-    private final List<Product>  products;
-
+    private final List<Product> products;
     private boolean active;
 
     private Restaurant(Builder builder) {
@@ -15,6 +14,7 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
         products = builder.products;
         active = builder.active;
     }
+
     public static Builder builder() {
         return new Builder();
     }
@@ -35,11 +35,7 @@ public class Restaurant extends AggregateRoot<RestaurantId> {
         private Builder() {
         }
 
-        public static Builder builder() {
-            return new Builder();
-        }
-
-        public Builder restaurantId (RestaurantId val ) {
+        public Builder restaurantId(RestaurantId val) {
             restaurantId = val;
             return this;
         }

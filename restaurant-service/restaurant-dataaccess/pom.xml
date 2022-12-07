@@ -13,6 +13,10 @@
     <dependencies>
         <dependency>
             <groupId>com.zeroToHero</groupId>
+            <artifactId>outbox</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeroToHero</groupId>
             <artifactId>restaurant-application-service</artifactId>
         </dependency>
         <dependency>

@@ -1,7 +1,6 @@
 package com.zeroToHero.restaurant.service.domain;
 
 import com.zeroToHero.restaurant.service.domain.dto.RestaurantApprovalRequest;
-import com.zeroToHero.restaurant.service.domain.event.OrderApprovalEvent;
 import com.zeroToHero.restaurant.service.domain.ports.input.message.listener.RestaurantApprovalRequestMessageListener;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,8 +18,6 @@ public class RestaurantApprovalRequestMessageListenerImpl implements RestaurantA
 
     @Override
     public void approveOrder(RestaurantApprovalRequest restaurantApprovalRequest) {
-        OrderApprovalEvent orderApprovalEvent =
-                restaurantApprovalRequestHelper.persistOrderApproval(restaurantApprovalRequest);
-        orderApprovalEvent.fire();
+        restaurantApprovalRequestHelper.persistOrderApproval(restaurantApprovalRequest);
     }
 }
