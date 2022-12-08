@@ -1,7 +1,6 @@
 package com.zeroToHero.order.service.domain;
 
 
-import lombok.extern.slf4j.Slf4j;
 import com.zeroToHero.order.service.domain.entity.Order;
 import com.zeroToHero.order.service.domain.entity.Product;
 import com.zeroToHero.order.service.domain.entity.Restaurant;
@@ -9,19 +8,15 @@ import com.zeroToHero.order.service.domain.event.OrderCancelledEvent;
 import com.zeroToHero.order.service.domain.event.OrderCreatedEvent;
 import com.zeroToHero.order.service.domain.event.OrderPaidEvent;
 import com.zeroToHero.order.service.domain.exception.OrderDomainException;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import static com.zeroToHero.domain.DomainConstants.UTC;
 
-
 @Slf4j
-@Component
 public class OrderDomainServiceImpl implements OrderDomainService {
 
     @Override

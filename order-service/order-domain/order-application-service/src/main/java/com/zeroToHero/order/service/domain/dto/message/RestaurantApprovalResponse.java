@@ -20,3 +20,4 @@ public class RestaurantApprovalResponse {
     private OrderApprovalStatus orderApprovalStatus;
     private List<String> failureMessages;
 }
+
