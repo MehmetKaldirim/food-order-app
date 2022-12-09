@@ -131,6 +131,35 @@
                 <artifactId>restaurant-messaging</artifactId>
                 <version>${project.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.zeroToHero</groupId>
+                <artifactId>customer-domain-core</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeroToHero</groupId>
+                <artifactId>customer-application-service</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeroToHero</groupId>
+                <artifactId>customer-application</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeroToHero</groupId>
+                <artifactId>customer-dataaccess</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeroToHero</groupId>
+                <artifactId>customer-messaging</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+
+
+
             <dependency>
                 <groupId>com.zeroToHero</groupId>
                 <artifactId>kafka-producer</artifactId>
