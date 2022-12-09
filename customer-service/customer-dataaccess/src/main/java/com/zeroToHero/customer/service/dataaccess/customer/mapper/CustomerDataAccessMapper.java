@@ -1,8 +1,8 @@
 package com.zeroToHero.customer.service.dataaccess.customer.mapper;
 
-import com.food.ordering.system.customer.service.dataaccess.customer.entity.CustomerEntity;
-import com.food.ordering.system.customer.service.domain.entity.Customer;
-import com.food.ordering.system.domain.valueobject.CustomerId;
+import com.zeroToHero.customer.service.dataaccess.customer.entity.CustomerEntity;
+import com.zeroToHero.customer.service.domain.entity.Customer;
+import com.zeroToHero.domain.valueobject.CustomerId;
 import org.springframework.stereotype.Component;
 
 @Component
