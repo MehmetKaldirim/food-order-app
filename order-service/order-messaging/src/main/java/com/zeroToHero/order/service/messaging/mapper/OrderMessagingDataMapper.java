@@ -1,6 +1,7 @@
 package com.zeroToHero.order.service.messaging.mapper;
 
 import com.zeroToHero.kafka.order.avro.model.*;
+import com.zeroToHero.order.service.domain.dto.message.CustomerModel;
 import com.zeroToHero.order.service.domain.dto.message.PaymentResponse;
 import com.zeroToHero.order.service.domain.dto.message.RestaurantApprovalResponse;
 import com.zeroToHero.order.service.domain.entity.Order;
@@ -81,12 +82,12 @@ public class OrderMessagingDataMapper {
                 .build();
     }
 
-  /*  public CustomerModel customerAvroModeltoCustomerModel(CustomerAvroModel customerAvroModel) {
+ public CustomerModel customerAvroModeltoCustomerModel(CustomerAvroModel customerAvroModel) {
         return CustomerModel.builder()
                 .id(customerAvroModel.getId())
                 .username(customerAvroModel.getUsername())
                 .firstName(customerAvroModel.getFirstName())
                 .lastName(customerAvroModel.getLastName())
                 .build();
-    }*/
+    }
 }

@@ -5,6 +5,7 @@ import com.zeroToHero.order.service.domain.dto.create.CreateOrderCommand;
 import com.zeroToHero.order.service.domain.dto.create.CreateOrderResponse;
 import com.zeroToHero.order.service.domain.dto.create.OrderAddress;
 //import com.zeroToHero.order.service.domain.dto.message.CustomerModel;
+import com.zeroToHero.order.service.domain.dto.message.CustomerModel;
 import com.zeroToHero.order.service.domain.dto.track.TrackOrderResponse;
 import com.zeroToHero.order.service.domain.entity.*;
 import com.zeroToHero.order.service.domain.event.OrderCancelledEvent;
@@ -94,12 +95,12 @@ public class OrderDataMapper {
                 .build();
     }
 
-  /*  public Customer customerModelToCustomer(CustomerModel customerModel) {
+   public Customer customerModelToCustomer(CustomerModel customerModel) {
         return new Customer(new CustomerId(UUID.fromString(customerModel.getId())),
                 customerModel.getUsername(),
                 customerModel.getFirstName(),
                 customerModel.getLastName());
-    }*/
+    }
 
     private List<OrderItem> orderItemsToOrderItemEntities(
             List<com.zeroToHero.order.service.domain.dto.create.OrderItem> orderItems) {
