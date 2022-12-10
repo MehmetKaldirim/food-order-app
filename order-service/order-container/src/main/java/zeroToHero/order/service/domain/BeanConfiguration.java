@@ -11,5 +11,11 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfiguration {
 
         //Bean Creation of OrderDomainService  is already done inside the OrderServiceConfigData so i deleted the bean here
+        //it s deleted itself:)
+
+    @Bean
+    public OrderDomainService orderDomainService() {
+        return new OrderDomainServiceImpl();
+    }
 
 }
